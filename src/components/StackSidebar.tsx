@@ -10,6 +10,9 @@ const StackSidebar = ({
   selectedStack,
   setSelectedStack,
 }: StackSidebarProps) => {
+  const handleRemoveAll = () => {
+    setSelectedStack([]);
+  };
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-5">
       <p className="text-xl font-semibold">Your Stack</p>
@@ -34,6 +37,18 @@ const StackSidebar = ({
             selectedStack={selectedStack}
           />
         </div>
+      )}
+
+      {selectedStack.length !== 0 ? (
+        <button
+          onClick={handleRemoveAll}
+          className="w-full cursor-pointer mt-5 bg-red-50 border border-red-600 text-red-600 rounded-lg py-2"
+          type="button"
+        >
+          Remove All
+        </button>
+      ) : (
+        ""
       )}
     </div>
   );
