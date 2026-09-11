@@ -16,3 +16,25 @@ body {
 p {
   font-family: var(--font-jakarta);
 }
+
+:root {
+  --brand-gradient: linear-gradient(
+    to right,
+    rgb(255, 87, 34) 0%,
+    rgb(216, 27, 126) 50%,
+    rgb(124, 58, 237) 100%
+  );
+}
+
+/* Reusable text gradient */
+.text-brand-gradient {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reusable background gradient */
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}

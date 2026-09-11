@@ -2,6 +2,7 @@ import { XIcon } from "lucide-react";
 
 import type { TechnologiesType } from "../types/technology";
 import { type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface StackItemProps {
   selectedStack: TechnologiesType[];
@@ -10,9 +11,12 @@ interface StackItemProps {
 
 const StackItem = ({ selectedStack, setSelectedStack }: StackItemProps) => {
   const handleRemove = (id: string) => {
-    const removePlayer = selectedStack.filter((s) => s.id !== id);
+    const removedTechnology = selectedStack.find((stack) => stack.id === id);
 
-    setSelectedStack(removePlayer);
+    setSelectedStack((prev) => prev.filter((stack) => stack.id !== id));
+    if (removedTechnology) {
+      toast.info(`${removedTechnology.name} removed from your stack.`);
+    }
   };
   return (
     <>

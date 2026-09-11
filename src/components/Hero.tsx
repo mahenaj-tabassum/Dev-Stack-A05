@@ -6,7 +6,7 @@ const Hero = () => {
         <div>
           <h2 className="font-bold text-[#0f172a] text-4xl md:text-6xl ">
             Build Your Ideal <br />
-            <span className="bg-linear-to-r from-[#f97315fa] to-[#ec4899] bg-clip-text text-transparent">
+            <span className="text-brand-gradient brand-gradient bg-clip-text text-transparent">
               Development Stack
             </span>
           </h2>
@@ -18,7 +18,7 @@ const Hero = () => {
 
           <div className="flex md:flex-row flex-col items-center justify-center lg:justify-start md:gap-6 gap-4">
             <button
-              className="text-white bg-linear-to-r from-[#f97315] to-[#ec4899] px-4 py-2 rounded"
+              className="text-white bg-brand-gradient px-4 py-2 rounded"
               type="button"
             >
               Explore Technologies

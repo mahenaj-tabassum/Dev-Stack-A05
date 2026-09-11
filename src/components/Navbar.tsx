@@ -34,11 +34,11 @@ const Navbar = () => {
           <li>Contact</li>
         </ul>
         <div className="flex gap-5">
-          <button type="button" className="cursor-pointer">
+          <button type="button" className="text-[13px] cursor-pointer">
             Sign In
           </button>
           <button
-            className="btn px-5 bg-[#d91b7e] border-none cursor-pointer text-white btn-secondary rounded-[9999px]"
+            className="btn px-4 text-[13px] bg-[#d91b7e] border-none cursor-pointer text-white btn-secondary rounded-3xl"
             type="button"
           >
             Sign Up

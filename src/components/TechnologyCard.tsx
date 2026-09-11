@@ -68,6 +68,7 @@ const TechnologyCard = ({
                 ${isAdded ? "flex items-center justify-center gap-2 cursor-not-allowed bg-amber-50 border border-amber-600 text-amber-600" : "bg-slate-950 text-white cursor-pointer transition-transform duration-300 hover:-translate-y-1"}
                 `}
             type="button"
+            // disabled={isAdded}
           >
             {isAdded ? <>✓ Added to Stack</> : "Add to Stack"}
           </button>

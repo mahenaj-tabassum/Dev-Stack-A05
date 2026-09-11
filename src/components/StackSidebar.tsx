@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { TechnologiesType } from "../types/technology";
 import StackItem from "./StackItem";
+import { toast } from "react-toastify";
 
 interface StackSidebarProps {
   selectedStack: TechnologiesType[];
@@ -12,6 +13,7 @@ const StackSidebar = ({
 }: StackSidebarProps) => {
   const handleRemoveAll = () => {
     setSelectedStack([]);
+    toast.info("All technologies removed from your stack.");
   };
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-5">
@@ -22,7 +24,8 @@ const StackSidebar = ({
         </p>
       ) : (
         <p className="text-[14px] ml-1 text-gray-400 mt-3 mb-5">
-          {selectedStack.length} Technology Selected
+          {selectedStack.length}{" "}
+          {selectedStack.length === 1 ? "Technology" : "Technologies"} Selected
         </p>
       )}
 
