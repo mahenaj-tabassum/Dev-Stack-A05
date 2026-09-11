@@ -1,6 +1,6 @@
-import { CheckIcon, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 import type { BadgeType, TechnologiesType } from "../types/technology";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
@@ -25,12 +25,13 @@ const TechnologyCard = ({
   setSelectedStack,
   selectedStack,
 }: TechnologyCardProps) => {
-  const [isAdded, setIsAdded] = useState(false);
-
+  const isAdded = selectedStack.some((stack) => stack.id === technology.id);
   const handleIsAdded = () => {
-    setIsAdded(!isAdded);
+    if (isAdded) {
+      return toast.warning("You can't add same card again!");
+    }
     toast.success(`${technology.name} added to stack`);
-    setSelectedStack([...selectedStack, technology]);
+    setSelectedStack((prev) => [...prev, technology]);
   };
 
   return (
@@ -67,15 +68,8 @@ const TechnologyCard = ({
                 ${isAdded ? "flex items-center justify-center gap-2 cursor-not-allowed bg-amber-50 border border-amber-600 text-amber-600" : "bg-slate-950 text-white cursor-pointer transition-transform duration-300 hover:-translate-y-1"}
                 `}
             type="button"
-            disabled={isAdded}
           >
-            {isAdded ? (
-              <>
-                <CheckIcon className="size-5" /> Added to stack
-              </>
-            ) : (
-              "Add to Stack"
-            )}
+            {isAdded ? <>✓ Added to Stack</> : "Add to Stack"}
           </button>
         </div>
       </div>

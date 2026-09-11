@@ -1,10 +1,15 @@
+import type { Dispatch, SetStateAction } from "react";
 import type { TechnologiesType } from "../types/technology";
 import StackItem from "./StackItem";
 
 interface StackSidebarProps {
   selectedStack: TechnologiesType[];
+  setSelectedStack: Dispatch<SetStateAction<TechnologiesType[]>>;
 }
-const StackSidebar = ({ selectedStack }: StackSidebarProps) => {
+const StackSidebar = ({
+  selectedStack,
+  setSelectedStack,
+}: StackSidebarProps) => {
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-5">
       <p className="text-xl font-semibold">Your Stack</p>
@@ -24,7 +29,10 @@ const StackSidebar = ({ selectedStack }: StackSidebarProps) => {
         </div>
       ) : (
         <div className="flex flex-col gap-5">
-          <StackItem selectedStack={selectedStack} />
+          <StackItem
+            setSelectedStack={setSelectedStack}
+            selectedStack={selectedStack}
+          />
         </div>
       )}
     </div>

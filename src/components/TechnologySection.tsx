@@ -29,7 +29,7 @@ const TechnologySection = ({ devStackDataPromise }: TechnologySectionProps) => {
 
       {/* Added to Stack */}
       <div>
-        <StackSidebar selectedStack={selectedStack} />
+        <StackSidebar setSelectedStack={setSelectedStack} selectedStack={selectedStack} />
       </div>
     </div>
   );

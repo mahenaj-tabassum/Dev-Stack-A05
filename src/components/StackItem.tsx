@@ -1,12 +1,19 @@
 import { XIcon } from "lucide-react";
 
 import type { TechnologiesType } from "../types/technology";
+import { type Dispatch, type SetStateAction } from "react";
 
 interface StackItemProps {
   selectedStack: TechnologiesType[];
+  setSelectedStack: Dispatch<SetStateAction<TechnologiesType[]>>;
 }
 
-const StackItem = ({ selectedStack }: StackItemProps) => {
+const StackItem = ({ selectedStack, setSelectedStack }: StackItemProps) => {
+  const handleRemove = (id: string) => {
+    const removePlayer = selectedStack.filter((s) => s.id !== id);
+
+    setSelectedStack(removePlayer);
+  };
   return (
     <>
       {selectedStack.length !== 0 &&
@@ -23,7 +30,10 @@ const StackItem = ({ selectedStack }: StackItemProps) => {
                 <p className="text-[12px] text-gray-400">{stack.category}</p>
               </div>
             </div>
-            <button className="cursor-pointer">
+            <button
+              onClick={() => handleRemove(stack.id)}
+              className="cursor-pointer"
+            >
               <XIcon className="text-red-500 size-5" />
             </button>
           </div>
