@@ -1,9 +1,13 @@
-import { StarIcon } from "lucide-react";
+import { CheckIcon, StarIcon } from "lucide-react";
 import type { BadgeType, TechnologiesType } from "../types/technology";
+import { useState, type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   // Object
   technology: TechnologiesType;
+  setSelectedStack: Dispatch<SetStateAction<TechnologiesType[]>>;
+  selectedStack: TechnologiesType[];
 }
 const badgeStyles: Record<BadgeType, string> = {
   Popular: "border-blue-200 bg-blue-50 text-blue-600",
@@ -16,10 +20,22 @@ const badgeStyles: Record<BadgeType, string> = {
   Powerful: "border-indigo-200 bg-indigo-50 text-indigo-600",
   Containers: "border-yellow-200 bg-yellow-50 text-yellow-600",
 };
-const TechnologyCard = ({ technology }: TechnologyCardProps) => {
+const TechnologyCard = ({
+  technology,
+  setSelectedStack,
+  selectedStack,
+}: TechnologyCardProps) => {
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleIsAdded = () => {
+    setIsAdded(!isAdded);
+    toast.success(`${technology.name} added to stack`);
+    setSelectedStack([...selectedStack, technology]);
+  };
+
   return (
     <div>
-      <div className="h-full relative px-5 py-8 rounded-xl bg-white border border-gray-300 flex flex-col ">
+      <div className="h-full relative px-5 py-8 rounded-xl bg-white border border-gray-200 flex flex-col ">
         <span
           className={`absolute right-5 top-5 text-[12px] border rounded p-1 ${badgeStyles[technology.badge]}`}
         >
@@ -31,7 +47,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
           alt={technology.name}
         />
         <h2 className="font-bold text-2xl">{technology.name}</h2>
-        <p className="text-[15px] my-5 text-gray-500">
+        <p className="text-[12px] my-5 text-gray-500">
           {technology.description}
         </p>
         <div className="mt-auto">
@@ -46,10 +62,20 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
             </span>
           </div>
           <button
-            className="mt-8 w-full bg-slate-950 text-white py-2 rounded-xl cursor-pointer"
+            onClick={handleIsAdded}
+            className={`mt-8 w-full  py-2 text-[15px] rounded-xl 
+                ${isAdded ? "flex items-center justify-center gap-2 cursor-not-allowed bg-amber-50 border border-amber-600 text-amber-600" : "bg-slate-950 text-white cursor-pointer transition-transform duration-300 hover:-translate-y-1"}
+                `}
             type="button"
+            disabled={isAdded}
           >
-            Add to Stack
+            {isAdded ? (
+              <>
+                <CheckIcon className="size-5" /> Added to stack
+              </>
+            ) : (
+              "Add to Stack"
+            )}
           </button>
         </div>
       </div>

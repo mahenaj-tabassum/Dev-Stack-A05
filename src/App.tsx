@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import TechnologySection from "./components/TechnologySection";
 import Loading from "./components/Loading";
+import { ToastContainer } from "react-toastify";
 
 const fetchDevStackData = async () => {
   const response = await fetch("/data/technology.json");
@@ -14,16 +15,19 @@ const fetchDevStackData = async () => {
 const App = () => {
   const [devStackDataPromise] = useState(() => fetchDevStackData());
   return (
-    <div className="md:bg-white bg-[#f8f6f6]">
-      <Navbar />
-      <div className="w-[85%] mx-auto">
-        <Hero />
-        <Suspense fallback={<Loading />}>
-          <TechnologySection devStackDataPromise={devStackDataPromise} />
-        </Suspense>
+    <>
+      <ToastContainer position="top-right" />
+      <div className="md:bg-white bg-[#f8f6f6]">
+        <Navbar />
+        <div className="w-[85%] mx-auto">
+          <Hero />
+          <Suspense fallback={<Loading />}>
+            <TechnologySection devStackDataPromise={devStackDataPromise} />
+          </Suspense>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

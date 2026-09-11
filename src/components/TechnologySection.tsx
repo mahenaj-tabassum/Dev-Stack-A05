@@ -1,6 +1,7 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { TechnologiesType } from "../types/technology";
 import TechnologyCard from "./TechnologyCard";
+import StackSidebar from "./StackSidebar";
 
 interface TechnologySectionProps {
   // Array of Object
@@ -8,13 +9,27 @@ interface TechnologySectionProps {
 }
 
 const TechnologySection = ({ devStackDataPromise }: TechnologySectionProps) => {
+  // Array of Objects
   const technologies = use(devStackDataPromise);
+
+  const [selectedStack, setSelectedStack] = useState<TechnologiesType[]>([]);
   return (
-    <div className="grid grid-cols-[3fr_1fr]">
+    <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-3">
       <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-20">
+        {/* Technology: Add to stack */}
         {technologies.map((technology) => (
-          <TechnologyCard key={technology.id} technology={technology} />
+          <TechnologyCard
+            selectedStack={selectedStack}
+            setSelectedStack={setSelectedStack}
+            key={technology.id}
+            technology={technology}
+          />
         ))}
+      </div>
+
+      {/* Added to Stack */}
+      <div>
+        <StackSidebar selectedStack={selectedStack} />
       </div>
     </div>
   );
