@@ -1,0 +1,9 @@
+1. Data Fetching
+- Fetch Data and Create a Promise in App.tsx
+- Create an async function to fetch data from API.
+- Convert the response to JSON and return the data
+- use useState(()=> dataFetch()) to create and store Promise
+- Pass the promise inside <Suspense>to a component</Suspense>
+
+- The technologySection component receives the array of object'
+- 
