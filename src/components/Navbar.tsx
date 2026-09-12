@@ -4,7 +4,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="sticky top-0 z-50 bg-[#f8f6f6]/90 md:bg-white/90 border-b border-white/20 backdrop:blur-md">
+    <nav className="sticky border border-b-[#f1f5f9] top-0 z-50 bg-[#f8f6f6]/90 md:bg-white/90 border-b border-white/20 backdrop:blur-md">
       <div className="relative w-[85%] mx-auto py-5 flex items-center justify-between">
         {/* Mobile Menu */}
         <button

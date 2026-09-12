@@ -14,8 +14,8 @@ const TechnologySection = ({ devStackDataPromise }: TechnologySectionProps) => {
 
   const [selectedStack, setSelectedStack] = useState<TechnologiesType[]>([]);
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-3">
-      <div className="grid lg:grid-cols-3 gap-6 items-stretch mb-20">
+    <div className="grid grid-cols-1  lg:grid-cols-[3fr_1fr] gap-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch md:mb-20 mb-7">
         {/* Technology: Add to stack */}
         {technologies.map((technology) => (
           <TechnologyCard

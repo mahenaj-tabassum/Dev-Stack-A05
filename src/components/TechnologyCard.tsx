@@ -11,8 +11,8 @@ interface TechnologyCardProps {
 }
 const badgeStyles: Record<BadgeType, string> = {
   Popular: "border-blue-200 bg-blue-50 text-blue-600",
-  Flexible: "border-purple-200 bg-purple-50 text-purple-600",
-  Fast: "border-green-200 bg-green-50 text-green-600",
+  Flexible: "border-green-200 bg-green-50 text-green-600",
+  Fast: "border-purple-200 bg-purple-50 text-purple-600",
   Essential: "border-red-200 bg-red-50 text-red-600",
   "Top SQL": "border-orange-200 bg-orange-50 text-orange-600",
   "Type-Safe": "border-cyan-200 bg-cyan-50 text-cyan-600",
@@ -59,7 +59,7 @@ const TechnologyCard = ({
             <p className="text-[13px]">{technology.difficulty}</p>
             <span className="flex items-center text-[12px] gap-0.5">
               <StarIcon className="size-4 text-yellow-400 fill-yellow-400" />
-              {technology.rating}
+              <span className="text-yellow-500">{technology.rating}</span>
             </span>
           </div>
           <button

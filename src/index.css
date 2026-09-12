@@ -24,11 +24,22 @@ p {
     rgb(216, 27, 126) 50%,
     rgb(124, 58, 237) 100%
   );
+  --text-gradient: linear-gradient(
+    to right,
+    rgba(236, 72, 153, 1) 0%,
+    rgba(139, 92, 246, 1) 100%
+  );
 }
 
 /* Reusable text gradient */
 .text-brand-gradient {
   background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-pink-gradient {
+  background-image: var(--text-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

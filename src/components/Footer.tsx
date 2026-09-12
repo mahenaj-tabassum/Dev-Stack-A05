@@ -1,14 +1,14 @@
 import Logo from "../assets/logo-text.png";
 const Footer = () => {
   return (
-    <footer className=" border-t border-gray-300">
+    <footer className=" border-t bg-white border-gray-300">
       <div className="pt-20 pb-10  w-[80%] mx-auto">
         <div className="flex mb-10 justify-center lg:justify-between">
           <div className="flex flex-col text-center lg:text-left items-center lg:block">
             <img src={Logo} alt="logo" />
             <p className="my-5 text-gray-500 text-[15px]">
               Curated tools, technologies, and resources for developers building{" "}
-              <br /> modern software
+              <br className="hidden md:block" /> modern software
             </p>
             <ul className="flex gap-5">
               <li>
@@ -47,12 +47,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center justify-between border border-gray-200 p-4 rounded-xl">
-          <p className="text-[15px] text-gray-400">
+          <p className="md:text-[15px] text-xs text-gray-400">
             © 2026 Dev Stack. All rights reserved.
           </p>
           <ul className="flex text-gray-400 lg:gap-5 gap-3">
-            <li>Privacy</li>
-            <li>Terms</li>
+            <li className="md:text-[15px] text-xs">Privacy</li>
+            <li className="md:text-[15px] text-xs">Terms</li>
           </ul>
         </div>
       </div>

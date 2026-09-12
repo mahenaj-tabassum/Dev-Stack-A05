@@ -21,9 +21,19 @@ const App = () => {
         <Navbar />
         <div className="w-[85%] mx-auto">
           <Hero />
-          <Suspense fallback={<Loading />}>
-            <TechnologySection devStackDataPromise={devStackDataPromise} />
-          </Suspense>
+          <div>
+            <h2 className="text-center md:text-4xl md:text-left font-bold text-3xl">
+              Explore the{" "}
+              <span className="text-pink-gradient">Technologies</span>
+            </h2>
+            <p className="text-center mb-8 mt-2 md:text-left text-sm text-gray-600">
+              Pick one technology per category to build your ideal stack
+            </p>
+
+            <Suspense fallback={<Loading />}>
+              <TechnologySection devStackDataPromise={devStackDataPromise} />
+            </Suspense>
+          </div>
         </div>
         <Footer />
       </div>

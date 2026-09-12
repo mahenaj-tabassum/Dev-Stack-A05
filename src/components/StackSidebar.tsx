@@ -16,7 +16,7 @@ const StackSidebar = ({
     toast.info("All technologies removed from your stack.");
   };
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-5">
+    <div className="mb-10 bg-white border border-gray-200 rounded-lg p-5">
       <p className="text-xl font-semibold">Your Stack</p>
       {selectedStack.length === 0 ? (
         <p className="text-[14px] ml-1 text-gray-400 mt-3 mb-5">

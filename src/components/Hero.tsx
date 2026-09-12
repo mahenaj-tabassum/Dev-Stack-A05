@@ -10,21 +10,21 @@ const Hero = () => {
               Development Stack
             </span>
           </h2>
-          <p className="md:text-[18px] text-gray-600 md:my-8 my-5">
+          <p className="md:text-[18px] text-gray-700 md:my-8 my-5">
             Explore frontend, backend, database, and tooling options, compare
             them side by side, and put together the stack that fits your next
             project.
           </p>
 
-          <div className="flex md:flex-row flex-col items-center justify-center lg:justify-start md:gap-6 gap-4">
+          <div className="flex  items-center justify-center lg:justify-start md:gap-6 gap-4">
             <button
-              className="text-white bg-brand-gradient px-4 py-2 rounded"
+              className="cursor-pointer text-white bg-brand-gradient px-4 py-2 rounded"
               type="button"
             >
               Explore Technologies
             </button>
             <button
-              className="px-13 py-2 rounded border border-[#e5e7eb] bg-white"
+              className="cursor-pointer px-13 py-2 rounded border border-[#e5e7eb] bg-white"
               type="button"
             >
               Learn More
@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
         </div>
         <img
-          className="w-full lg:translate-x-6"
+          className="w-125 h-150 sm:w-full sm:h-full object-cover g:translate-x-6"
           src={BannerImg}
           alt="Banner Image"
         />
